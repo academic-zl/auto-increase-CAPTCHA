@@ -18,7 +18,7 @@ K.6.5[计算机空间]：计算机管理和信息系统 - 安全和保护
 验证码（CAPTCHA）是“Completely Automated Public Tests to tell Computers and Humans Apart”[29,28,27,15,9]的缩写。主要思想是出一道困难的AI问题来区别当前服务的是机器人还是合法用户，除非AI技术获得突破性进展。验证码系统的鲁棒性并非依赖数据库的安全性，而是这个问题固有的难度。解决验证码问题的难度对于人和机器人来说，通常有相同的难度。因为验证码系统很少是独立的，它一般是应用程序的一部分，如在线注册，让用户花多于几秒钟的时间去解决验证码问题是不现实的。于是，在现实系统中，一个复杂的问题需要人花费很长时间去解决是不现实的。
 辨识扭曲的文字，基于图片的提问，是一种防止机器人的技术，使用非常广泛。然而，伴随着计算机视觉领域的发展，机器人已经可以破解使用如OCR（Optical
 Character Recognition）和语义[30, 26, 16, 2, 19]技术的文本验证码。引入噪声和扭曲来提高基于文本的系统复杂度虽然让机器人的破解变得困难，但是同样也降低了用户友好性和可用性。
-基于图片的系统目的是提高验证码系统的可用性[20, 3, 17, 23, 18, 7, 25, 32]。然而，许多现有的基于图像状态的图片系统如Asirra[20]有着灵活性和适应性不良的缺点。Asirra是难度只有图像识别，需要用户来找出所有的猫从猫和狗中。在像Asirra系统上，如Golle所示[22]，一种特别的机器学习技术的攻击方法已经获得很高的识别率。此外，呈现给机器人的固有选择总是二值（一个图片是猫或是狗），让它对模板适应攻击很敏感，这个问题将在4.2章中详细讨论。我们提出了SEMAGE，一种新奇的基于图像的验证码系统，它有双因子模型需要用户来识别图片和确定图片所共有的语义上的联系。语义上联系使得SEMAGE有更好的鲁棒性来面对相同的机器学习攻击。其他的基于图像的系统，像ESP_PIX[3]和 SQ_PIX[7]有语言依赖和可使用性的担忧。我们将说明更多的验证码系统和它们的局限性在2章中。
+基于图片的系统目的是提高验证码系统的可用性[20,3,17,23,18,7,25,32]。然而，许多现有的基于图像状态的图片系统如Asirra[20]有着灵活性和适应性不良的缺点。Asirra是难度只有图像识别，需要用户来找出所有的猫从猫和狗中。在像Asirra系统上，如Golle所示[22]，一种特别的机器学习技术的攻击方法已经获得很高的识别率。此外，呈现给机器人的固有选择总是二值（一个图片是猫或是狗），让它对模板适应攻击很敏感，这个问题将在4.2章中详细讨论。我们提出了SEMAGE，一种新奇的基于图像的验证码系统，它有双因子模型需要用户来识别图片和确定图片所共有的语义上的联系。语义上联系使得SEMAGE有更好的鲁棒性来面对相同的机器学习攻击。其他的基于图像的系统，像ESP_PIX[3] 和 SQ_PIX[7]有语言依赖和可使用性的担忧。我们将说明更多的验证码系统和它们的局限性在2章中。
 在本论文中，我们提出了SEMAGE（**Se**mantically **Ma**tching
 Ima**ge**s），一种双因子验证码系统。在SEMAGE系统中，我们把一系列的候选图片呈现给用户，而不呈现拥有语义联系的子集合。对于用户的挑战是在内容中确定系统定义的语义相关的图片。需要注意的事，在正确集合里的图片不需要拥有相同的对象，一个语义相关的图片集合可能是不同物理属性单却有相同的定义内容的实体的图片组成的。考虑这样一个例子，用户需要回答内容相似拥有相同起源的图片，候选集包括图片如木柴，木椅，火柴，电器，一个动物和一个人，木柴，木椅，火柴属于一个相似集。
 SEMAGE验证码系统难度体现在两个方面：（1）用户需要独立的指出每张图片的内容，也就是图像识别，（2）还需要在理解图像的语义关系的基础上正确的匹配文件。人类会很自然的采用他们的认知能力和平常直觉来解决这个问题，甚至不会感觉到这个问题固有的难度。同样，机器人也要面对相同的难度，即理解图片并指出它们之间的关系，这构成了一个很难的AI问题。我们的双因子设计主要目的是提高机器人破解的难度等级的同时提高用户友好性，而不牺牲系统的鲁棒性。
@@ -58,7 +58,7 @@ Google的图片验证码‘what's up’[23]需要用户去调整图片的方向�
 Microsoft的Asirra[20]利用了在petfinder.com上的已有的数据库，呈现给用户许多猫和狗的照片，然后让用户在12个宠物中确定所有猫的图片。这个平台是语言无关的，需要用户查看12张图片，然后平均点击6次。图3显示Assira的一个简单例子。
 Asirra配合petfinder.com可以访问他的很大的有猫和狗的数据库。但是固有的难度对于机器人来说仅仅是区分猫和狗。这使得Assira是不稳固面对机器学习攻击[22]。而SEMAGE在有双因子设计，用户需要识别每张图片，还需要理解并确定它的子集语义上的联系。而Assira只需要用户去解决第一个层次（图像识别）。利用图片之间的语义相关性，制造更加安全和用户友好的测试让SEMAGE有更好的鲁棒性。
 
-## SEMAGE设计
+## 3. SEMAGE设计
 我们提出了SEMAGE，“**Se**mantically **Ma**tching
 Ima**ge**s”，一种新奇的基于图片的双营子验证码系统，他利用图片之间的语义关系。语义上的查询已经被用在其他领域如web搜索[24]。我们构想定义语义相似的图片然后设计一个利用这样概念用户友好的和有更好鲁棒性的验证码系统。
 
@@ -70,7 +70,7 @@ SEMAGE呈现一系列的候选图片，这些候选图片的子集有相同的�
 我们现在陈述选择‘语义相似’关系的图片来创建验证码问题。‘语义标签’是一个专业词汇表述一个对象的有关系的标签。语义标签可以被直接的使用来标示数据库创建问题。让$SL(x)$标示返回x的语义标签的函数，我们认为两张图片是语义相关的，如果他满足下面的任意一种情况
 
 - 情况1：如果两张图片拥有相同的语义标签。给出两张图片A和B，他们如果$SL(a)=SL(b)$，则认为他们有语义上的联系。例如，一个电脑的图片和一个电视的图片被定义一样的语义标签($SL$)‘电器’
-- 情况2：两张图片被分类到相同类别的语义标签。给出两个图片A和B，他们有语义上的联系如果$\exists T \ s.t. \ SL(A) \subset T \ \&\  SL(B) \subset T$，其中$T$代表一个语义标签。举个例子，一个狮子的图片和一个鹿的图片可以被分到相同的语义标签下‘四条腿的动物’。相似的，一个电视的图片和一个电脑的图片可以被分到相同的语义标签‘电器’。
+- 情况2：两张图片被分类到相同类别的语义标签。给出两个图片A和B，他们有语义上的联系如果$\exists \ T \ s.t. \ SL(A) \subset T \ \&\  SL(B) \subset T$，其中$T$代表一个语义标签。举个例子，一个狮子的图片和一个鹿的图片可以被分到相同的语义标签下‘四条腿的动物’。相似的，一个电视的图片和一个电脑的图片可以被分到相同的语义标签‘电器’。
 - 情况3：当两张图片放到一起的时候，他们展示了独一无二的可辨识的概念。给出两张图片A，B和一些语义标签C，其中C代表需求的集合，A和B是语义上合适的如果$\{ A \cup B \} \models C$其中$\models$标示左边的满足右边的需求，举个例子，一张打印机的图片和一张纸的图片也可以被定义为可以辨识的概念‘打印’，这是一个语义标签。
 
 ‘语义关系’的需求更加普遍，语义相关增加，因为我们可以将情况1移动到情况3.为了建立一个SEMAGE问题，我们应该确保只有一个图片的子集可以满足上面的情况，最好给图片最少的广义标签。
@@ -167,7 +167,7 @@ $n$是一个问题中图片的数量，$m$是相似的或是有关系的图片�
 
 用户研究数据表明我们系统（0.94）比起Asirra（0.91）更高。用户对基于文本验证码系统更加熟悉，我们期望他们可以在reCAPTCHA系统中干的更好。但是再次，SEMAGE比起传统的基于文本的系统，完全差不多。这数据表明，我们的系统有很高的可用性比起现在基于图片状态的图片系统（Asirra）。
 
-### 娱乐性和简单使用性
+### 5.6 娱乐性和简单使用性
 在对比三个系统之后，用户被问及比较SEMAGE和Assira的娱乐性和轻松性。这里有两个独立的问题：之一是娱乐性，另外一个是轻松性，让用户选择如下的打分：
 
 - 1，如果用户认为Assira有更好的娱乐性或轻松性
@@ -181,14 +181,150 @@ $n$是一个问题中图片的数量，$m$是相似的或是有关系的图片�
 
 这些尺度和之前的时间，正确率结果清楚的证明SEMAGE是一个更高的用户友好的验证码系统。
 
-## 局限性和以后的工作
+## 6 局限性和以后的工作
 生成一个巨大的正确的数据库对基于图片的系统还是一个很大的挑战。在我们的简单SEMAGE实现中，我们爬网页，自动收集和给图片添加标签。然而，不是所有的被爬虫返回的图片都是有关联的，一些甚至会让人反感。这样的手动劳动浪费了很多时间，还有可能会引起很大问题当数据库日常更新的时候。直接使用爬来的图片这里还有法律问题。
 
 SEMAGE收益于他的设计思想，不需要用那种方法建立数据库。像电子商务，电影租赁网站可以很方便的使用已有的图片数据库，而这些数据已经有‘语义关联’。然而，建立自动的大的，正确的数据库还需要更多的工作。
 
 这篇论文我们介绍了使用对象之间的‘语义关系’建立的验证码系统，然后实现了实现了另一个简单系统。我们实现的简单的系统并没有完全发掘SEMAGE的潜力，我们打算构建有更好鲁棒性的系统，更高层次以语义相关为基础的SEAMGE系统。
 
-## 总结
+## 7 总结
 这篇论文中，我们提出了SEMAGE（**Se**mantically **Ma**tching
 Ima**ge**s）。这种验证码系统呈现给用户一系列的图片，然后让用户选择语义相关的图片。这个问题分为两层：理解语义含义，建立语义关联。这个问题对用户来说是很自然的，因为它结合了轻量级的视觉和识别工作。然而，这种分层的结构，对反对机器人来说，提供双重的保护。因为交互接口是简单的和有效的，这是很容易理解的。验证码系统不断的寻找可用性和安全性之间的最佳的平衡点。SEMAGE给网站管理用提供极大的定制空间。在问题中，他们可以根据实际的网站对可用性和安全性的需要，定制候选图片和语义关联的图片数量。更进一步，SEMAGE可以和触控设备或是小的手机，这种输入比较困难的设备结合。网站管理员可以决定图片数据库的内容来迎合他们的促销需求。SEMAGE数据库可以被特别的填充，或者从已有的数据库中适配过来。电子商务是一个SEMAGE数据库可以很容易建立的领域，SEMAGE同样也给可以被定制来满足安全性和广告宣传的目的。
+
+## 8 参考文献
+
+[1] Audio and visual captcha.http://www.nswardh.com/shout/.
+
+[2] Breaking text captcha. http://www.blackhat-seo.com/2008/how-to-break-captchas/.
+
+[3] Esp-pix. http://server251.theory.cs.cmu.edu/cgi-bin/esp-pix/esp-pix.
+
+[4] Gimpy project.http://www.captcha.net/captchas/gimpy/.
+
+[5] Imagemagick.http://www.imagemagick.org/script/index.php.
+
+[6] recaptcha official site. reCaptchaOfficialSite:http://www.google.com/reCAPTCHA.
+
+[7] Sq-pix. http://server251.theory.cs.cmu.edu/cgi-bin/sq-pix.
+
+[8] L. v. Ahn. Human Computation. Ph. d. dissertation, Carnegie Mellon
+University, 2005.
+
+[9] H. S. Baird and K. Popat. Human interactive proofs and document
+image analysis. In Proceedings of the 5th International Workshop on
+Document Analysis Systems V, DAS ’02, pages 507–518, London,
+UK, 2002. Springer-Verlag.
+
+[10] J. P. Bigham and A. C. Cavender. Evaluating existing audio captchas
+and an interface optimized for non-visual use. In Proceedings of the
+27th international conference on Human factors in computing
+systems, CHI ’09, pages 1829–1838, New York, NY, USA, 2009.
+ACM.
+
+[11] E. Bursztein, R. Bauxis, H. Paskov, D. Perito, C. Fabry, and J. C.
+Mitchell. The failure of noise-based non-continuous audio captchas.
+In Proceedings of 2011 IEEE Symposium on Security and Privacy
+(Oakland’11), 2011.
+
+[12] E. Bursztein, R. Beauxis, H. S. Paskov, D. Perito, C. Fabry, and J. C.
+Mitchell. The failure of noise-based non-continuous audio captchas.
+In Proceedings of the 2011 IEEE Symposium on Security and
+Privacy. IEEE Computer Society, 2011.
+
+[13] E. Bursztein, S. Bethard, C. Fabry, D. Jurafsky, and J. C. Mitchell.
+How good are humans at solving captchas? a large scale evaluation.
+In Proceedings of 2010 IEEE Symposium on Security and Privacy
+(Oakland’10), 2010.
+
+[14] T.-Y. Chan. Using a text-to-speech synthesizer to generate a reverse
+turing test. Tools with Artificial Intelligence, IEEE International
+Conference on, 0:226, 2003.
+
+[15] K. Chellapilla, K. Larson, P. Simard, and M. Czerwinski. Designing
+human friendly human interaction proofs (hips). In Proceedings of
+the SIGCHI conference on Human factors in computing systems, CHI
+’05, pages 711–720, New York, NY, USA, 2005. ACM.
+
+[16] K. Chellapilla and P. Simard. Using machine learning to break visual
+human interaction proofs (hips). In In Advances in Neural
+Information Processing Systems, pages 265–272, 2005.
+
+[17] M. Chew and J. D. Tygar. Image recognition captchas. In In
+Proceedings of the 7th International Information Security
+Conference (ISC), pages 268–279, 2004.
+
+[18] R. Datta, J. Li, and J. Z. Wang. Imagination: a robust image-based
+captcha generation system. In Proceedings of the 13th annual ACM
+international conference on Multimedia, MULTIMEDIA ’05, pages
+331–334, New York, NY, USA, 2005. ACM.
+
+[19] A. S. El Ahmad, J. Yan, and L. Marshall. The robustness of a new
+captcha. In Proceedings of the Third European Workshop on System
+Security, EUROSEC ’10, pages 36–41, New York, NY, USA, 2010.
+ACM.
+
+[20] J. Elson, J. R. Doucerur, J. Howell, and J. Saul. Asirra: A captcha
+that exploits interest-aligned manual image categorization. In
+Proceedings of the 14th ACM conference on Computer and
+communications security, CCS ’07, pages 366–374, New York, NY,
+USA, 2007. ACM.
+
+[21] H. Gao, H. Liu, D. Yao, X. Liu, and U. Aickelin. An audio captcha to
+distinguish humans from computers. In Proceedings of the 2010
+Third International Symposium on Electronic Commerce and
+Security, ISECS ’10, pages 265–269, Washington, DC, USA, 2010.
+IEEE Computer Society.
+
+[22] P. Golle. Machine learning attacks against the asirra captcha. In
+Proceedings of the 15th ACM conference on Computer and
+communications security, CCS ’08, pages 535–542, New York, NY,
+USA, 2008. ACM.
+
+[23] R. Gossweiler, M. Kamvar, and S. Baluja. What’s up captcha?: a
+captcha based on image orientation. In Proceedings of the 18th
+international conference on World wide web, WWW ’09, pages
+841–850, New York, NY, USA, 2009. ACM.
+
+[24] R. Guha, R. McCool, and E. Miller. Semantic search. In Proceedings
+of the 12th international conference on World Wide Web, WWW ’03,
+pages 700–709, New York, NY, USA, 2003. ACM.
+
+[25] P. Matthews and C. C. Zou. Scene tagging: image-based captcha
+using image composition and object relationships. In Proceedings of
+the 5th ACM Symposium on Information, Computer and
+Communications Security, ASIACCS ’10, pages 345–350, New
+York, NY, USA, 2010. ACM.
+
+[26] G. Mori and J. Malik. Recognizing objects in adversarial
+clutter—breaking a visual captcha. In In Proceedings of the
+Conference on Computer Vision and Pattern Recognition, 2003.
+
+[27] Y. Rui and Z. Liu. Excuse but are you human? In Proceedings of the
+eleventh ACM international conference on Multimedia,
+MULTIMEDIA ’03, pages 462–463, New York, NY, USA, 2003.
+ACM.
+
+[28] L. von Ahn, M. Blum, N. J. Hopper, and J. Langford. Captcha: Using
+hard ai problems for security. In In In Proceedings of Eurocrypt, Vol.
+2656, pages 294–311, 2003.
+
+[29] L. von Ahn, M. Blum, and J. Langford. Telling humans and
+computers apart automatically. Commun. ACM, 47:56–60, February
+2004.
+
+[30] J. Yan and A. S. El Ahmad. A low-cost attack on a microsoft captcha.
+In Proceedings of the 15th ACM conference on Computer and
+communications security, CCS ’08, pages 543–554, New York, NY,
+USA, 2008. ACM.
+
+[31] J. Yan and A. S. El Ahmad. Usability of captchas or usability issues
+in captcha design. In Proceedings of the 4th symposium on Usable
+privacy and security, SOUPS ’08, pages 44–52, New York, NY,
+USA, 2008. ACM.
+
+[32] B. B. Zhu, J. Yan, Q. Li, C. Yang, J. Liu, N. Xu, M. Yi, and K. Cai.
+Attacks and design of image recognition captchas. In Proceedings of
+the 17th ACM conference on Computer and communications security,
+CCS ’10, pages 187–200, New York, NY, USA, 2010. ACM.
 
