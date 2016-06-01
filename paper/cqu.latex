@@ -35,12 +35,12 @@
 
 %-----------------------------------论文题目-------------------------------------------------
 \xuehao{20121892}
-\cntitle{重庆大学\LaTeX 学位论文模板CQU使用说明}
+\cntitle{基于深度学习的自增长图片验证码系统}
 \cnauthor{张乐}
 \cnmajor{软件工程}
 \cnteacher{葛永新}
 \cnxueyuan{软件学院}
-\entitle{An Instruction of the \LaTeX\ Templet for Chongqing University Thesis}
+\entitle{Automatic Increased Image-based CPATCHA with Deep Learning}
 \enauthor{Le Zhang}
 \enmajor{Software Engineering}
 \enteacher{Prof. Yongxin Ge}
@@ -59,7 +59,7 @@
 \pagenumbering{Roman}
 \setcounter{page}{0}
 %------------------------------------文章摘要------------------------------------------------------------
-\cnkeywords{模板，摘要，论文，\LaTeX}
+\cnkeywords{深度学习，自增长，图片验证码，爬虫，大数据}
 \begin{cnabstract}
 摘要是设计或论文内容不加注释和评论的简短陈述，应以第三人称陈述。它应具有独立性和自含性，
 即不阅读设计或论文的全文，就能获得必要的信息，摘要的内容应包含与设计或论文同等量的主要信
@@ -80,9 +80,9 @@
 \item 用废话来填充无关紧要的部分;
 \item 一边学习摸索一边编写新代码。
 \end{itemize*}
-(模板作者注:中文关键词定义cnkeywords应在使用中文摘要环境之前。英文关键词同理。)
 \end{cnabstract} 
-\enkeywords{template, \LaTeX, abstract, paper}
+
+\enkeywords{Deep Learning, Automatic Increase, Image-based CPATCHA, Crawler, Big Data}
 \begin{enabstract}
      An abstract of a dissertation is a summary and extraction of 
 research work and contributions. Included in an abstract should be 
@@ -115,21 +115,24 @@ separate one another.
 %------------------------------------词汇------------------------------------------------------------
 \begin{denotation}{2.5}{0}
 
-\item[cluster] 集群
-\item[Itanium] 安腾
-\item[SMP] 对称多处理
-\item[API] 应用程序编程接口
-\item[PI]   聚酰亚胺
-\item[劝  学] 君子曰：学不可以已。青，取之于蓝，而青于蓝；冰，水为之，而寒于水。
-  木直中绳。（车柔）以为轮，其曲中规。虽有槁暴，不复挺者，（车柔）使之然也。故木
-  受绳则直， 金就砺则利，君子博学而日参省乎己，则知明而行无过矣。吾尝终日而思
-  矣，  不如须臾之所学也；吾尝（足齐）而望矣，不如登高之博见也。登高而招，臂非加
-  长也，  而见者远；  顺风而呼，  声非加疾也，而闻者彰。假舆马者，非利足也，而致
-  千里；假舟楫者，非能水也，而绝江河，  君子生非异也，善假于物也。积土成山，风雨
-  兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。故不积跬步，无以至千
-  里；不积小流，无以成江海。骐骥一跃，不能十步；驽马十驾，功在不舍。锲而舍之，朽
-  木不折；  锲而不舍，金石可镂。蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心
-  一也。蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。\pozhehao{} 荀况
+
+\item[问题] 验证码系统通过向用户提问来区分人和机器，本文中特指验证码系统提问内容。
+\item[主体] 一张图片中可能包含多个物体，本文中将图片中的单个物体称为主体。
+
+\item[Q] 某次生成\emph{问题}的图片集合。
+
+\item[Qu] 生成问题中非确信\emph{主体}集合。
+\item[Qc] 生成问题中起验证作用的确信\emph{主体}集合。
+
+\item[I] 数据库中所有\emph{主体}的集合。
+\item[Iu] 是一个集合，表示非确信\emph{主体}集。
+\item[Ic] 是一个集合，表示确信\emph{主体}集。
+
+\item[N] 数据库中所有\emph{主体}名称的集合。
+\item[Nu] 是一个集合，数据库中所有非确信\emph{主体}名称的集合
+\item[Nc] 是一个集合，数据库中所有确信\emph{主体}名称的集合
+
+
 \end{denotation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

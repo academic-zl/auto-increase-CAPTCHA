@@ -199,7 +199,7 @@
 \renewcommand{\thefootnote}{%
      \scriptsize\textcircled{\tiny\arabic{footnote}}} 
 %%%章节标题设置
-\renewcommand\section{\@startsection {section}{1}{\z@}%
+\renewcommand\section{\newpage\@startsection {section}{1}{\z@}%
        {-3.5ex \@plus -1ex \@minus -.2ex}%
        {\hangju}%
        {\if@bachelor \vspace*{\hangju}
@@ -262,7 +262,7 @@
     \par}%
   \fi}
 %%重新定义生成目录
-\renewcommand\tableofcontents{\newpage%
+\renewcommand\tableofcontents{%
    \if@bachelor \vspace*{-2\hangju}
      \else \vspace*{-\hangju}
    \fi % 
@@ -270,7 +270,7 @@
     \@starttoc{toc}%
 }
 %列表和图像目录
-\renewcommand\listoffigures{\newpage%
+\renewcommand\listoffigures{%
    \if@bachelor \vspace*{-2\hangju}
      \else \vspace*{-\hangju}
    \fi % 
@@ -538,7 +538,7 @@
 
 \newtoks\enkeywords
 
-\newenvironment{cnabstract}{\newpage %
+\newenvironment{cnabstract}{ %
      \if@bachelor
          \vspace*{-2\hangju}
          \else
@@ -555,7 +555,7 @@
      \addcontentsline{toc}{section}{中文摘要} %
      }
 
-\newenvironment{enabstract}{\newpage %
+\newenvironment{enabstract}{ %
      \if@bachelor
          \vspace*{-2\hangju}
          \else
@@ -581,7 +581,7 @@
 %%%%%%定义致谢环境
 \newcommand{\@ackname}{致\qquad 谢}
 %\@mkboth{\refname}{\refname}%
-\newenvironment{ack}{\newpage %
+\newenvironment{ack}{ %
    \if@bachelor
          \vspace*{-2\hangju}
          \else
@@ -589,14 +589,14 @@
    \fi
    \section*{\@ackname\@mkboth{致谢}{}}}{%
    \addcontentsline{toc}{section}{致谢}
-   \newpage}
+   }
 
 %%%%%定义附录环境
 \newcounter{appsection}
 \renewcommand\theappsection{\Alph{appsection}}
 \stepcounter{appsection}
 \newcommand{\apptitle}[1]{%
-    {\newpage 
+    { 
      \@mkboth{\appendixname\theappsection :~#1}{}%
      \centering \vspace*{-0.2ex}
      \interlinepenalty \@M
@@ -622,7 +622,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%参考文献%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%重新定义参考文献环境
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewenvironment{thebibliography}[1]{\newpage%
+\renewenvironment{thebibliography}[1]{%
    \setlength{\baselineskip}{20bp}\wuhao
    \if@bachelor
          \vspace*{-2\hangju}
@@ -696,7 +696,7 @@
 %%还有一个参数控制label的宽度，单位cm
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\@denotation@name}{主要符号对照表}
-\newenvironment{denotation}[2]{\newpage
+\newenvironment{denotation}[2]{
    \ifnum1=#2
       \addcontentsline{toc}{section}{主要符号对照表}
    \fi

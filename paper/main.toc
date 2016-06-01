@@ -1,0 +1,41 @@
+\contentsline {section}{中文摘要}{I}{section*.1}
+\contentsline {section}{ABSTRACT}{II}{section*.2}
+\contentsline {section}{\numberline {1}前言}{1}{section.1}
+\contentsline {section}{\numberline {2}背景}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}文本验证码系统}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}声音验证码系统}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}图像验证码系统}{3}{subsection.2.3}
+\contentsline {section}{\numberline {3}图片验证码自增长系统设计}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}思路}{5}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}reCAPTCHA系统}{5}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}图片验证码的自学习与reCAPTCHA系统差异}{5}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.3}自增长策略}{6}{subsubsection.3.1.3}
+\contentsline {subsection}{\numberline {3.2}设计}{7}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}手动输入}{8}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}适应人类}{8}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}图片爬虫}{9}{subsubsection.3.2.3}
+\contentsline {paragraph}{爬虫策略}{9}{section*.12}
+\contentsline {subsubsection}{\numberline {3.2.4}图片分割}{10}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}图像预识别}{11}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.6}验证码生成}{11}{subsubsection.3.2.6}
+\contentsline {subsubsection}{\numberline {3.2.7}置信标签修改}{12}{subsubsection.3.2.7}
+\contentsline {subsubsection}{\numberline {3.2.8}Web 服务}{12}{subsubsection.3.2.8}
+\contentsline {paragraph}{基本模型}{12}{section*.14}
+\contentsline {paragraph}{数字签名}{13}{section*.16}
+\contentsline {section}{\numberline {4}图片验证码自增长系统分设计析}{14}{section.4}
+\contentsline {subsection}{\numberline {4.1}可用性}{14}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}安全性}{14}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}基于机器学习的攻击}{14}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}随机猜测攻击}{15}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}基于静态资源名称攻击}{15}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}基于图片纹理攻击}{15}{subsubsection.4.2.4}
+\contentsline {section}{\numberline {5}图片验证码自增长系统评估}{15}{section.5}
+\contentsline {subsection}{\numberline {5.1}实现例子}{15}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}用户研究}{16}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}时间统计}{17}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}精确度统计}{18}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}娱乐性和易用性}{18}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}自增长策略}{19}{subsubsection.5.2.4}
+\contentsline {section}{\numberline {6}存在问题和改进空间}{19}{section.6}
+\contentsline {section}{\numberline {7}总结}{20}{section.7}
+\contentsline {section}{参考文献}{21}{section*.22}
