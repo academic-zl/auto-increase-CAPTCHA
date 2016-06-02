@@ -35,12 +35,12 @@
 
 %-----------------------------------论文题目-------------------------------------------------
 \xuehao{20121892}
-\cntitle{基于深度学习的自增长图片验证码系统}
+\cntitle{基于深度学习的自增长图片验证码算法研究和实现}
 \cnauthor{张乐}
 \cnmajor{软件工程}
 \cnteacher{葛永新}
 \cnxueyuan{软件学院}
-\entitle{Automatic Increased Image-based CPATCHA with Deep Learning}
+\entitle{Automatic Increased Image-based CPATCHA Algorithm Design and Implementation with Deep Learning}
 \enauthor{Le Zhang}
 \enmajor{Software Engineering}
 \enteacher{Prof. Yongxin Ge}
