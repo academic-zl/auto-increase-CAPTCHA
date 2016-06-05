@@ -76,7 +76,7 @@
   \RequirePackage{fontspec,xltxtra,xunicode}% 这里使用 xetex 相应的宏包
    \RequirePackage{zhfont,zhmath}        % 中文支持使用zhspacing
    \zhspacing
-   \setzhmainfont[BoldFont=文泉驿等宽正黑]{SimSun}%这里设置中文粗体和普通字体
+   \setzhmainfont[BoldFont={SimHei}]{SimSun}%这里设置中文粗体和普通字体
    \setmainfont{Times New Roman}       %这里设置英文衬线字体
    \setmonofont{FreeMono}              %英文等宽字体
    \setsansfont{FreeMono}              %英文无衬线字体
@@ -84,15 +84,15 @@
    \else
    \if@xecjk
      \RequirePackage{xunicode,xltxtra}
-     \RequirePackage[CJKnumber,CJKtextspaces,CJKmathspaces]{xeCJK}
+     \RequirePackage[CJKnumber]{xeCJK}
      \punctstyle{kaiming} %标点格式 or kaiming
      \defaultfontfeatures{Mapping=tex-text} % after fontspec
-     \setCJKmainfont[BoldFont={文泉驿等宽正黑}]{SimSun}
+     \setCJKmainfont[BoldFont={SimHei}]{SimSun}
      \setCJKsansfont{文泉驿等宽正黑}
-     \setCJKmonofont{AR PL KaitiM GB}
+     \setCJKmonofont{文泉驿等宽正黑}
      \setCJKfamilyfont{song}{SimSun}
      \setCJKfamilyfont{hei}{文泉驿等宽正黑}
-     \setCJKfamilyfont{kai}{AR PL KaitiM GB}
+     \setCJKfamilyfont{kai}{文泉驿等宽正黑}
      \setmainfont{Times New Roman}
      \setsansfont{FreeMono}
      \setmonofont{Courier New}
@@ -275,9 +275,14 @@
      \else \vspace*{-\hangju}
    \fi % 
    \section*{\listfigurename}%
+   \@mkboth{插图清单}{}
     \@starttoc{lof}}
 \renewcommand\listoftables{%
+   \if@bachelor \vspace*{-2\hangju}
+     \else \vspace*{-\hangju}
+   \fi % 
    \section*{\listtablename}%
+   \@mkboth{附表清单}{}
     \@starttoc{lot}%
 }
 
@@ -434,7 +439,7 @@
            {\erhao\the\entitle}
             \end{spacing}
        \end{minipage}\\
-        \tabularnewline \tabularnewline \tabularnewline
+        \tabularnewline \tabularnewline
         \multicolumn{1}{c}{%
           \if@pdftex
              \includegraphics[scale=1.0]{pic/cqu.jpg}
@@ -705,8 +710,9 @@
        \else
        \vspace*{-\hangju}
    \fi
-   \@mkboth{\@denotation@name}{}%
+   
   \section*{\@denotation@name}
+  \@mkboth{\@denotation@name}{}%
   \noindent\begin{list}{}%
     {\vskip-30bp
      \renewcommand\makelabel[1]{##1\hfil}
@@ -719,7 +725,7 @@
      \setlength{\itemsep}{0cm} % 标签间距
     \setlength{\listparindent}{0cm} % 段落缩进量
     \setlength{\topsep}{0pt} % 标签与上文的间距
-   }}{\end{list}\newpage}
+   }}{\end{list}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%其它命令%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 在导言区支持中文。
 \def\@active@cjk{

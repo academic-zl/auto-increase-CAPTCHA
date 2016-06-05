@@ -1,4 +1,4 @@
-\documentclass[bachelor,zhspacing]{cqu}  %单面打印版本
+\documentclass[bachelor,xecjk]{cqu}  %单面打印版本
 \usepackage{etex}
 \def\tightlist{}
 
@@ -35,12 +35,12 @@
 
 %-----------------------------------论文题目-------------------------------------------------
 \xuehao{20121892}
-\cntitle{基于深度学习的自增长图片验证码算法研究和实现}
+\cntitle{基于深度学习的自增长图片验证码算法研究与实现}
 \cnauthor{张乐}
 \cnmajor{软件工程}
 \cnteacher{葛永新}
 \cnxueyuan{软件学院}
-\entitle{Automatic Increased Image-based CPATCHA Algorithm Design and Implementation with Deep Learning}
+\entitle{Design and Implementation of automatic Increased Image-based CPATCHA Algorithm using Deep Learning  }
 \enauthor{Le Zhang}
 \enmajor{Software Engineering}
 \enteacher{Prof. Yongxin Ge}
@@ -57,50 +57,59 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagenumbering{Roman}
-\setcounter{page}{0}
+
 %------------------------------------文章摘要------------------------------------------------------------
 \cnkeywords{深度学习，自增长，图片验证码，爬虫，大数据}
 \begin{cnabstract}
-摘要是设计或论文内容不加注释和评论的简短陈述，应以第三人称陈述。它应具有独立性和自含性，
-即不阅读设计或论文的全文，就能获得必要的信息，摘要的内容应包含与设计或论文同等量的主要信
-息，供读者确定有无必要阅读全文，也供文摘等二次文献采用。\par
-摘要一般应说明研究工作目的、实验研究方法、结果和最终结论等，而重点是结果和结论。摘要中一
-般不用图、表、化学结构式、计算机程序，不用非公知公用的符号、术语和非法定的计量单位。\par
-摘要页置于英文题名页后。 \par
-中文摘要一般为400汉字左右，用小四号宋体。 \par
-关键词是为了文献标引工作从设计（论文）中选取出来用以表示全文主题内容信息款目的单词或术
-语。一般每篇设计（论文）应选取3~5个词作为关键词，关键词间用逗号隔开，最后一个词后不打标点
-符号。以显著的字符排在同种语言摘要的下方。如有可能，尽量用《汉语主题词表》等词表提供的规
-范词。\par
-本文介绍重庆大学论文模板cqu的使用方法。本模板符合学校的本科论文格式基本要求，而硕博模板
-有待完善。
-本文的创新点主要有:
+
+本文提出了一种基于深度学习的自增长图片验证码算法。它能利用人类验证过程中的输入信息，实现图片数据库的自增长。\par
+
+实现这个目标最为关键的步骤是图片分割和图像预识别。在这一方面，深度卷积神经网络性能优秀，因此本文使用它。
+为了让提高系统自增长速率，需要大量用户使用此系统。因而需要将此系统做成web服务，提供给数以万计的网站调用。
+这就会必然涉及到超高并发，海量数据，授权等问题。本文提出了一整套的解决方案，并在设计时充分考虑到了这些问题。\par
+
+完成设计之后，本文对整体设计进行可用性和安全性评估；还实现了一个简单的例子并发起一个150人参加的用户实验。
+实验主要考察自增长图片验证码的用户解决时间，精确度，自增长性能，系统娱乐性和易用性4个方面。
+结果显示自增长的图片验证码系统拥有和文本验证码相近的用户解决时间和精确度，在这点上远超其他图片验证码系统；
+在系统娱乐性和易用性方面和其他图片验证码系统相近，远超图片验证码系统。除此之外，它还有不错的自增长性能。\par
+
+本文主要工作有:
 \begin{itemize*}
-\item 用例子来解释模板的使用方法;
-\item 用废话来填充无关紧要的部分;
-\item 一边学习摸索一边编写新代码。
+\item 提出了自增长图片验证码系统这一概念
+\item 为自增长图片验证码系统设计一整套超高并发，海量数据解决方案
+\item 基于深度学习实现自增长图片验证码系统
+\item 进行用户实验测试算法性能
 \end{itemize*}
+
+自增长的图片验证码系统，可以在防止人工输入图片出错发生的同时，提高图片验证码的可用性，安全性，用户友好性。经过长时间迭代其可以提供大量的带有标签的图片，这些图片是一个宝贵的资源，可以很方便的在其他领域使用(如：搜索引擎的图片语义化搜索，人工智能算法学习库)。
+
+
+\setcounter{page}{1}
 \end{cnabstract} 
 
 \enkeywords{Deep Learning, Automatic Increase, Image-based CPATCHA, Crawler, Big Data}
 \begin{enabstract}
-     An abstract of a dissertation is a summary and extraction of 
-research work and contributions. Included in an abstract should be 
-description of research topic and research objective, brief 
-introduction to methodology and research process, and summarization 
-of conclusion and contributions of the research. An abstract should be 
-characterized by independence and clarity and carry identical 
-information with the dissertation. It should be such that the general 
-idea and major contributions of the dissertation are conveyed
-without reading the dissertation.\par
-     An abstract should be concise and to the point. It is a 
-misunderstanding to make an abstract an outline of the dissertation and 
-words “the first chapter”, “the second chapter” and the like should be 
-avoided in the abstract.\par
-     Key words are terms used in a dissertation for indexing, 
-reflecting core information of the dissertation. An abstract may 
-contain a maximum of 5 key words, with semicolons used in between to 
-separate one another.
+This paper present an automatic increased image-based CPATCHA algorithm with deep learning.With data when people validate CPATCHA,it can automatic increase image database.\par
+
+During implementing this goal,Image Segment and Image Recognition is most important.Deep Convolutional Neural Network perform well,so it was chosen.
+A lot of users are need by this system to automatic increase quickly.So it is requirement to set up web service which can be used by thousands of website.
+This paper present a whole of solution to solve ultra-high concurrency, massive data, authorization and etc.\par
+
+After design,this paper evaluate system's usability and security;and also a demo is implemented to raise a user study with 150 people,in which timing,accuracy,auto-increased perform ,fun factor and ease of use are investigated.
+By its result,it is obvious that automatic increased image-based CPATCHA is same as text-based CPATCHA in timing and accuracy,in which other image-based CPATCHA lose,and it is same as other image-based CPATCHA in fun factor and ease of use,in which most text-based CPATCHA lose.\par
+
+
+Work in this paper:
+
+\begin{itemize*}
+\item Present automatic increased image-based CPATCHA concept
+\item Present a whole of solution to solve-ultra high concurrency, massive data for automatic increased image-based CPATCHA
+\item Implement automatic increased image-based CPATCHA using deep learning
+\item Test algorithm perform by user study
+\end{itemize*}
+
+Automatic increased image-based CPATCHA can not only prevent manual mistake,but improve CPATCHA usability,security and user-friendly.It will have mass of tagged image after iterating repeatedly,which is priceless resource of other field. Such as semantic image searching and AI learning library.
+
 \end{enabstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -117,7 +126,7 @@ separate one another.
 
 
 \item[问题] 验证码系统通过向用户提问来区分人和机器，本文中特指验证码系统提问内容。
-\item[主体] 一张图片中可能包含多个物体，本文中将图片中的单个物体称为主体。
+\item[主体] 一张图片中可能包含多个物体，本文中将图片中的单个物体称为主体。$x$
 
 \item[Q] 某次生成\emph{问题}的图片集合。
 
