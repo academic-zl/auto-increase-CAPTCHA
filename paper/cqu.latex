@@ -40,7 +40,7 @@
 \cnmajor{软件工程}
 \cnteacher{葛永新}
 \cnxueyuan{软件学院}
-\entitle{Design and Implementation of automatic Increased Image-based CPATCHA Algorithm using Deep Learning  }
+\entitle{Design and Implementation of automatic Increased Image-based CAPTCHA Algorithm using Deep Learning}
 \enauthor{Le Zhang}
 \enmajor{Software Engineering}
 \enteacher{Prof. Yongxin Ge}
@@ -62,26 +62,18 @@
 \cnkeywords{深度学习，自增长，图片验证码，爬虫，大数据}
 \begin{cnabstract}
 
-本文提出了一种基于深度学习的自增长图片验证码算法。它能利用人类验证过程中的输入信息，实现图片数据库的自增长。\par
+验证码（CAPTCHA）是“Completely Automated Public Tests to tell Computers and Humans Apart”的缩写。其主要思想是通过电脑向用户提问，通过回答来区分人和机器。目前验证码系统分为3种：文本验证码系统，声音验证码系统，图片验证码系统。图片验证码系统以其优良的可用性，安全性，用户友好性逐渐代替了其他系统；然而图片验证码系统也存在致命的缺点：图片需要人工导入。本文提出了一种基于深度学习的自增长图片验证码算法来解决这个问题，它能利用人类验证过程中的输入信息，实现图片数据库的自增长。本算法在解决上述问题的同时，还能大量的带有标签的图片，可以推动其他领域发展（如：搜索引擎的图片语义化搜索，人工智能算法学习库）。\par
 
-实现这个目标最为关键的步骤是图片分割和图像预识别。在这一方面，深度卷积神经网络性能优秀，因此本文使用它。
-为了让提高系统自增长速率，需要大量用户使用此系统。因而需要将此系统做成web服务，提供给数以万计的网站调用。
-这就会必然涉及到超高并发，海量数据，授权等问题。本文提出了一整套的解决方案，并在设计时充分考虑到了这些问题。\par
 
-完成设计之后，本文对整体设计进行可用性和安全性评估；还实现了一个简单的例子并发起一个150人参加的用户实验。
-实验主要考察自增长图片验证码的用户解决时间，精确度，自增长性能，系统娱乐性和易用性4个方面。
+本文主要工作有:\par
+
+1.创新性的提出自增长图片验证码系统这一概念。自增长图片验证码系统灵感来源于reCAPTCHA系统，通过对reCAPTCHA思想的改进，使其可以用在图片验证码系统上。\par
+2.使用深度学习方法实现自增长图片验证码系统。图片验证码系统最为关键的步骤是图片分割和图像预识别，在这一方面深度卷积神经网络性能优秀，本文使用DeepLearn4J来实现深度卷积神经网络。\par
+3.设计并实现超高并发web服务。为了提高系统自增长速率，需要大量用户使用此系统。因而需要将本系统做成web服务，提供给数以万计的网站调用。这就会必然涉及到超高并发，海量数据，授权等问题。本文提出了一整套的解决方案，并在设计时充分考虑到了这些问题。\par
+4.通过用户实验测试算法性能。本文对整体设计进行可用性和安全性评估，实现了一个简单的例子并发起一个150人参加的用户实验。实验主要考察自增长图片验证码的用户解决时间，精确度，自增长性能，系统娱乐性和易用性4个方面。
 结果显示自增长的图片验证码系统拥有和文本验证码相近的用户解决时间和精确度，在这点上远超其他图片验证码系统；
 在系统娱乐性和易用性方面和其他图片验证码系统相近，远超图片验证码系统。除此之外，它还有不错的自增长性能。\par
 
-本文主要工作有:
-\begin{itemize*}
-\item 提出了自增长图片验证码系统这一概念
-\item 为自增长图片验证码系统设计一整套超高并发，海量数据解决方案
-\item 基于深度学习实现自增长图片验证码系统
-\item 进行用户实验测试算法性能
-\end{itemize*}
-
-自增长的图片验证码系统，可以在防止人工输入图片出错发生的同时，提高图片验证码的可用性，安全性，用户友好性。经过长时间迭代其可以提供大量的带有标签的图片，这些图片是一个宝贵的资源，可以很方便的在其他领域使用(如：搜索引擎的图片语义化搜索，人工智能算法学习库)。
 
 
 \setcounter{page}{1}
@@ -89,26 +81,18 @@
 
 \enkeywords{Deep Learning, Automatic Increase, Image-based CPATCHA, Crawler, Big Data}
 \begin{enabstract}
-This paper present an automatic increased image-based CPATCHA algorithm with deep learning.With data when people validate CPATCHA,it can automatic increase image database.\par
+CAPTCHA is short for Completely Automated Public Tests to tell Computers and Humans Apart. The main idea is to distinguish human from computer by asking user questions and analyzing the answers. There are three kinds of CAPTCHA systems now: text-based CAPTCHA systems, audio-based CAPTCHA systems and image-based CAPTCHA systems. Image CAPTCHA systems have gradually replace others for its outstanding availability, security, user-friendliness. However, there is are fatal flows: people need to import images manually. There propose an auto-increase image CAPTCHA algorithm based on deep-learning to solve the problem. It achieves auto-increase with the data people input when try to validate. Not only can the algorithm solve the problem, but also it can learn the labels for no-label images, which can promote the development of other fields(such as: sematic image search, datasets for artificial intelligence learning algorithm).\par
 
-During implementing this goal,Image Segment and Image Recognition is most important.Deep Convolutional Neural Network perform well,so it was chosen.
-A lot of users are need by this system to automatic increase quickly.So it is requirement to set up web service which can be used by thousands of website.
-This paper present a whole of solution to solve ultra-high concurrency, massive data, authorization and etc.\par
+Main work in this paper is following:\par
 
-After design,this paper evaluate system's usability and security;and also a demo is implemented to raise a user study with 150 people,in which timing,accuracy,auto-increased perform ,fun factor and ease of use are investigated.
-By its result,it is obvious that automatic increased image-based CPATCHA is same as text-based CPATCHA in timing and accuracy,in which other image-based CPATCHA lose,and it is same as other image-based CPATCHA in fun factor and ease of use,in which most text-based CPATCHA lose.\par
+1. Propose the concept of auto-increase image CAPTCHA system originally. The inspiration comes from reCAPTCHA system. Improve reCAPTCHA so that it can be used in image CAPTCHA system.\par
 
+2. Implement the system with deep learning algorithm. The key steps of the system are image segmentation and image pre-recognition, on which convolutional neural network has an excellent performance. DeepLearn4J is used to implement convolutional neural network.\par
 
-Work in this paper:
+3. Design and implement web service with ultra-high concurrent. In order to improve the growth rate, it requires a large number of users to use, that's also why the system is made a web service to allow millions of people to use it. So, this results in problems about ultra-high concurrent ,mass data, authorization and so on. A set of solutions was presented in this paper, and full account was taken when designing.\par
 
-\begin{itemize*}
-\item Present automatic increased image-based CPATCHA concept
-\item Present a whole of solution to solve-ultra high concurrency, massive data for automatic increased image-based CPATCHA
-\item Implement automatic increased image-based CPATCHA using deep learning
-\item Test algorithm perform by user study
-\end{itemize*}
+4. Test algorithm performance with user experiments. In this paper, usability and security were assessed. A simple demonstration was achieved, in which 150 people took part. The experiments mainly assess users' choosing time, accuracy, performance of auto-increase, entertainment and ease of use. The results show that users' choosing time and accuracy for image CAPTCHA system are similar with text CAPTCHA system, and are far better than other image CAPTCHA system. Entertainment and ease of use is similar with other image CAPTCHA systems, and far better than text CAPTCHA systems. Besides, it has a good auto-increase performance.\par
 
-Automatic increased image-based CPATCHA can not only prevent manual mistake,but improve CPATCHA usability,security and user-friendly.It will have mass of tagged image after iterating repeatedly,which is priceless resource of other field. Such as semantic image searching and AI learning library.
 
 \end{enabstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -131,7 +115,7 @@ Automatic increased image-based CPATCHA can not only prevent manual mistake,but 
 \item[Q] 某次生成\emph{问题}的图片集合。
 
 \item[Qu] 生成问题中非确信\emph{主体}集合。
-\item[Qc] 生成问题中起验证作用的确信\emph{主体}集合。
+\item[Qc] 生成问题中确信\emph{主体}集合。
 
 \item[I] 数据库中所有\emph{主体}的集合。
 \item[Iu] 是一个集合，表示非确信\emph{主体}集。
