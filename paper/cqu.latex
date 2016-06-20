@@ -1,4 +1,4 @@
-\documentclass[bachelor,xecjk]{cqu}  %单面打印版本
+\documentclass[bachelor,xecjk,twoside]{cqu}  %单面打印版本
 \usepackage{etex}
 \def\tightlist{}
 
@@ -95,6 +95,8 @@ Main work in this paper is following:\par
 
 
 \end{enabstract}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %--------------文章目录-------------
@@ -104,7 +106,7 @@ Main work in this paper is following:\par
 \listoftables
 %\addcontentsline{toc}{section}{附表清单}
 
-
+\clearpage
 %------------------------------------词汇------------------------------------------------------------
 \begin{denotation}{2.5}{0}
 
